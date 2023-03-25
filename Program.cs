@@ -16,7 +16,7 @@ namespace ProjectGroup03_63KTPM2_Version01
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDialogEditDish());
+            Application.Run(new FrmLogin());
         }
     }
 }

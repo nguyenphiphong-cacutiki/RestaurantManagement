@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSignUp));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbFrmSignUp_inform = new System.Windows.Forms.Label();
             this.btFrmSignUp_signUp = new System.Windows.Forms.Button();
             this.btFrmSignUp_signIn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbFrmSignUp_user = new System.Windows.Forms.TextBox();
             this.tbFrmSignUp_pass = new System.Windows.Forms.TextBox();
-            this.btFrmSignUp_custom = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel2.Controls.Add(this.lbFrmSignUp_inform);
             this.panel2.Controls.Add(this.btFrmSignUp_signUp);
             this.panel2.Controls.Add(this.btFrmSignUp_signIn);
             this.panel2.Controls.Add(this.label4);
@@ -70,29 +71,41 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tbFrmSignUp_user);
             this.panel2.Controls.Add(this.tbFrmSignUp_pass);
-            this.panel2.Controls.Add(this.btFrmSignUp_custom);
             this.panel2.Location = new System.Drawing.Point(27, 50);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(430, 360);
             this.panel2.TabIndex = 34;
             // 
+            // lbFrmSignUp_inform
+            // 
+            this.lbFrmSignUp_inform.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFrmSignUp_inform.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbFrmSignUp_inform.Location = new System.Drawing.Point(121, 187);
+            this.lbFrmSignUp_inform.Name = "lbFrmSignUp_inform";
+            this.lbFrmSignUp_inform.Size = new System.Drawing.Size(291, 13);
+            this.lbFrmSignUp_inform.TabIndex = 34;
+            this.lbFrmSignUp_inform.Text = "label5";
+            this.lbFrmSignUp_inform.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbFrmSignUp_inform.Visible = false;
+            // 
             // btFrmSignUp_signUp
             // 
             this.btFrmSignUp_signUp.BackColor = System.Drawing.Color.Gray;
             this.btFrmSignUp_signUp.ForeColor = System.Drawing.SystemColors.Window;
-            this.btFrmSignUp_signUp.Location = new System.Drawing.Point(162, 177);
+            this.btFrmSignUp_signUp.Location = new System.Drawing.Point(139, 220);
             this.btFrmSignUp_signUp.Name = "btFrmSignUp_signUp";
-            this.btFrmSignUp_signUp.Size = new System.Drawing.Size(118, 48);
+            this.btFrmSignUp_signUp.Size = new System.Drawing.Size(101, 48);
             this.btFrmSignUp_signUp.TabIndex = 33;
             this.btFrmSignUp_signUp.Text = "Đăng kí";
             this.btFrmSignUp_signUp.UseVisualStyleBackColor = false;
+            this.btFrmSignUp_signUp.Click += new System.EventHandler(this.btFrmSignUp_signUp_Click);
             // 
             // btFrmSignUp_signIn
             // 
             this.btFrmSignUp_signIn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btFrmSignUp_signIn.BackColor = System.Drawing.Color.Gray;
             this.btFrmSignUp_signIn.ForeColor = System.Drawing.SystemColors.Window;
-            this.btFrmSignUp_signIn.Location = new System.Drawing.Point(228, 277);
+            this.btFrmSignUp_signIn.Location = new System.Drawing.Point(294, 220);
             this.btFrmSignUp_signIn.Name = "btFrmSignUp_signIn";
             this.btFrmSignUp_signIn.Size = new System.Drawing.Size(101, 48);
             this.btFrmSignUp_signIn.TabIndex = 32;
@@ -127,6 +140,7 @@
             this.tbFrmSignUp_confirmPass.Name = "tbFrmSignUp_confirmPass";
             this.tbFrmSignUp_confirmPass.Size = new System.Drawing.Size(291, 20);
             this.tbFrmSignUp_confirmPass.TabIndex = 29;
+            this.tbFrmSignUp_confirmPass.TextChanged += new System.EventHandler(this.passChange);
             // 
             // label2
             // 
@@ -163,18 +177,7 @@
             this.tbFrmSignUp_pass.Name = "tbFrmSignUp_pass";
             this.tbFrmSignUp_pass.Size = new System.Drawing.Size(291, 20);
             this.tbFrmSignUp_pass.TabIndex = 25;
-            // 
-            // btFrmSignUp_custom
-            // 
-            this.btFrmSignUp_custom.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btFrmSignUp_custom.BackColor = System.Drawing.Color.Gray;
-            this.btFrmSignUp_custom.ForeColor = System.Drawing.SystemColors.Window;
-            this.btFrmSignUp_custom.Location = new System.Drawing.Point(121, 277);
-            this.btFrmSignUp_custom.Name = "btFrmSignUp_custom";
-            this.btFrmSignUp_custom.Size = new System.Drawing.Size(101, 48);
-            this.btFrmSignUp_custom.TabIndex = 24;
-            this.btFrmSignUp_custom.Text = "KHÁCH HÀNG";
-            this.btFrmSignUp_custom.UseVisualStyleBackColor = false;
+            this.tbFrmSignUp_pass.TextChanged += new System.EventHandler(this.passChange);
             // 
             // FrmSignUp
             // 
@@ -207,8 +210,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbFrmSignUp_user;
         private System.Windows.Forms.TextBox tbFrmSignUp_pass;
-        private System.Windows.Forms.Button btFrmSignUp_custom;
         private System.Windows.Forms.Button btFrmSignUp_signUp;
+        private System.Windows.Forms.Label lbFrmSignUp_inform;
     }
 }
 

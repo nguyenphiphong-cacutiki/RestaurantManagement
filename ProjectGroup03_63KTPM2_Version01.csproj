@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dish.cs" />
     <Compile Include="FrmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="FrmDialogAddDish.Designer.cs">
       <DependentUpon>FrmDialogAddDish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDialogBill_Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogBill_Employee.designer.cs">
+      <DependentUpon>FrmDialogBill_Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEmployee.cs">
       <SubType>Form</SubType>
@@ -112,6 +119,12 @@
     <Compile Include="ItemBill.designer.cs">
       <DependentUpon>ItemBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemDishInBill_Employee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemDishInBill_Employee.designer.cs">
+      <DependentUpon>ItemDishInBill_Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemDish_Employee.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +138,7 @@
       <DependentUpon>ItemDish_Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagerTables.cs" />
+    <Compile Include="ObjectItemBill.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCustomer.resx">
@@ -135,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDialogAddDish.resx">
       <DependentUpon>FrmDialogAddDish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogBill_Employee.resx">
+      <DependentUpon>FrmDialogBill_Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
@@ -159,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ItemBill.resx">
       <DependentUpon>ItemBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemDishInBill_Employee.resx">
+      <DependentUpon>ItemDishInBill_Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemDish_Employee.resx">
       <DependentUpon>ItemDish_Employee.cs</DependentUpon>

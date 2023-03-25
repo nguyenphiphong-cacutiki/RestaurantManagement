@@ -76,12 +76,13 @@
             this.btFrmLogin_signIn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btFrmLogin_signIn.BackColor = System.Drawing.Color.Gray;
             this.btFrmLogin_signIn.ForeColor = System.Drawing.SystemColors.Window;
-            this.btFrmLogin_signIn.Location = new System.Drawing.Point(178, 156);
+            this.btFrmLogin_signIn.Location = new System.Drawing.Point(142, 229);
             this.btFrmLogin_signIn.Name = "btFrmLogin_signIn";
             this.btFrmLogin_signIn.Size = new System.Drawing.Size(75, 47);
             this.btFrmLogin_signIn.TabIndex = 58;
             this.btFrmLogin_signIn.Text = "Đăng nhập";
             this.btFrmLogin_signIn.UseVisualStyleBackColor = false;
+            this.btFrmLogin_signIn.Click += new System.EventHandler(this.btFrmLogin_signIn_Click);
             // 
             // label2
             // 
@@ -124,24 +125,27 @@
             this.btFrmLogin_custom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btFrmLogin_custom.BackColor = System.Drawing.Color.Gray;
             this.btFrmLogin_custom.ForeColor = System.Drawing.SystemColors.Window;
-            this.btFrmLogin_custom.Location = new System.Drawing.Point(97, 252);
+            this.btFrmLogin_custom.Location = new System.Drawing.Point(5, 310);
             this.btFrmLogin_custom.Name = "btFrmLogin_custom";
             this.btFrmLogin_custom.Size = new System.Drawing.Size(115, 47);
             this.btFrmLogin_custom.TabIndex = 53;
             this.btFrmLogin_custom.Text = "Khách hàng";
             this.btFrmLogin_custom.UseVisualStyleBackColor = false;
+            this.btFrmLogin_custom.Visible = false;
+            this.btFrmLogin_custom.Click += new System.EventHandler(this.btFrmLogin_custom_Click);
             // 
             // btFrmLogin_signUp
             // 
             this.btFrmLogin_signUp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btFrmLogin_signUp.BackColor = System.Drawing.Color.Gray;
             this.btFrmLogin_signUp.ForeColor = System.Drawing.SystemColors.Window;
-            this.btFrmLogin_signUp.Location = new System.Drawing.Point(218, 252);
+            this.btFrmLogin_signUp.Location = new System.Drawing.Point(254, 229);
             this.btFrmLogin_signUp.Name = "btFrmLogin_signUp";
-            this.btFrmLogin_signUp.Size = new System.Drawing.Size(115, 47);
+            this.btFrmLogin_signUp.Size = new System.Drawing.Size(73, 47);
             this.btFrmLogin_signUp.TabIndex = 52;
             this.btFrmLogin_signUp.Text = "Đăng kí";
             this.btFrmLogin_signUp.UseVisualStyleBackColor = false;
+            this.btFrmLogin_signUp.Click += new System.EventHandler(this.btFrmLogin_signUp_Click);
             // 
             // label3
             // 
@@ -158,6 +162,7 @@
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.btFrmLogin_signIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
@@ -168,7 +173,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
-            this.Load += new System.EventHandler(this.dangnhap_Load);
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

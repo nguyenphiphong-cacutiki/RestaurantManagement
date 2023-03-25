@@ -1,4 +1,4 @@
-﻿namespace HienTien
+﻿namespace ProjectGroup03_63KTPM2_Version01
 {
     partial class ItemBill
     {
@@ -53,6 +53,7 @@
             this.btItemBill_delete.TabIndex = 18;
             this.btItemBill_delete.Text = "X";
             this.btItemBill_delete.UseVisualStyleBackColor = true;
+            this.btItemBill_delete.Click += new System.EventHandler(this.btItemBill_delete_Click);
             // 
             // btItemBill_plus
             // 
@@ -65,6 +66,7 @@
             this.btItemBill_plus.TabIndex = 17;
             this.btItemBill_plus.Text = "+";
             this.btItemBill_plus.UseVisualStyleBackColor = true;
+            this.btItemBill_plus.Click += new System.EventHandler(this.btItemBill_plus_Click);
             // 
             // btItemBill_minus
             // 
@@ -77,6 +79,7 @@
             this.btItemBill_minus.TabIndex = 16;
             this.btItemBill_minus.Text = "-";
             this.btItemBill_minus.UseVisualStyleBackColor = true;
+            this.btItemBill_minus.Click += new System.EventHandler(this.btItemBill_minus_Click);
             // 
             // pbItemBill_pic
             // 
@@ -87,6 +90,7 @@
             this.pbItemBill_pic.Location = new System.Drawing.Point(7, 8);
             this.pbItemBill_pic.Name = "pbItemBill_pic";
             this.pbItemBill_pic.Size = new System.Drawing.Size(50, 50);
+            this.pbItemBill_pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbItemBill_pic.TabIndex = 15;
             this.pbItemBill_pic.TabStop = false;
             // 
