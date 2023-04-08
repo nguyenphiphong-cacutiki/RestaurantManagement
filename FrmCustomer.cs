@@ -25,6 +25,9 @@ namespace ProjectGroup03_63KTPM2_Version01
         private Button currentButtonClick = null;
         public static List<ObjectItemBill> listItemBill;
         public static bool isOrder = false;
+
+        Timer timeCancelBill;
+        int timeCancel = 150;
         public FrmCustomer()
         {
             InitializeComponent();
@@ -40,6 +43,9 @@ namespace ProjectGroup03_63KTPM2_Version01
             adapterDish = new SqlDataAdapter();
             dtCategory = new DataTable();
             dtDish = new DataTable();
+
+            timeCancelBill = new Timer();
+            timeCancelBill.Tick += new System.EventHandler(this.canCelBill);
         }
 
         
@@ -64,7 +70,7 @@ namespace ProjectGroup03_63KTPM2_Version01
                 for (int i = dtCategory.Rows.Count - 1; i >= 0; i--)
                 {
                     Button bt = new Button();
-                    bt.Text = dtCategory.Rows[i][0].ToString();
+                    bt.Text = dtCategory.Rows[i][0].ToString().Trim();
                     bt.Dock = DockStyle.Top;
                     bt.BackColor = Color.Gray;
                     if (i == 0)
@@ -141,9 +147,76 @@ namespace ProjectGroup03_63KTPM2_Version01
             }
         }
 
+        private void canCelBill(object sender, EventArgs e)
+        {
+            if(timeCancel == 0)
+            {
+                   if(PnFrmCustomer_Bill.Controls.Count > 0)
+                {
+                    for (int i = 0; i < PnFrmCustomer_Bill.Controls.Count; i++)
+                    {
+                        ItemBill item = (ItemBill)PnFrmCustomer_Bill.Controls[i];
+
+                        // so luong la control 5
+
+
+                        string amount = item.Controls[5].Text;
+                        int granTotal = Convert.ToInt32(item.price) * Convert.ToInt32(amount);
+                        string date = DateTime.Now.ToString("yyyy/MM/dd");
+                        cmd.CommandText = "insert into " + ManagerTables.NewBill + " values('" + ItemDish_Manager.currentIdBill + "', " +
+                            "'" + item.id + "', " +
+                            "'" + amount + "', " +
+                            "'" + granTotal + "', " +
+                            "''," +
+                            "'" + date + "'," +
+                            "'" + tableIndex + "')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    isOrder = true;
+                    loadBillForATable();
+
+                    timeCancelBill.Stop();
+                    timeCancel = 150;
+                    BtFrmCustomer_DatHang.BackColor = Color.Red;
+                    BtFrmCustomer_DatHang.Text = "ĐẶT HÀNG";
+                    MessageBox.Show("Đặt hàng thành công!");
+                }
+                timeCancelBill.Stop();
+                timeCancel = 150;
+                BtFrmCustomer_DatHang.BackColor = Color.Red;
+                BtFrmCustomer_DatHang.Text = "ĐẶT HÀNG";
+
+            }
+            else
+            {
+                timeCancel--;
+                BtFrmCustomer_DatHang.Text = "Hủy đơn (" + timeCancel / 10 + " s)";
+            }
+        }
         private void BtFrmCustomer_DatHang_Click(object sender, EventArgs e)
         {
-            if (!isOrder)
+            if(BtFrmCustomer_DatHang.BackColor != Color.Green)
+            {
+                if (!isOrder)
+                {
+                    BtFrmCustomer_DatHang.BackColor = Color.Green;
+                    timeCancelBill.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Đơn hàng đã đặt!");
+                }
+            }
+            else
+            {
+                BtFrmCustomer_DatHang.BackColor = Color.Red;
+                timeCancelBill.Stop();
+                BtFrmCustomer_DatHang.Text = "ĐẶT HÀNG";
+                timeCancel = 150;
+            }
+           
+           
+            /*if (!isOrder)
             {
                 for (int i = 0; i < PnFrmCustomer_Bill.Controls.Count; i++)
                 {
@@ -172,7 +245,7 @@ namespace ProjectGroup03_63KTPM2_Version01
             {
                 MessageBox.Show("Đơn hàng đã đặt!");
 
-            }
+            }*/
         }
         public static void setGrandTotalBill()
         {

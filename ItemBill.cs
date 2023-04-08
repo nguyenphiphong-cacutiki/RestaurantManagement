@@ -25,6 +25,7 @@ namespace ProjectGroup03_63KTPM2_Version01
         public ItemBill()
         {
             InitializeComponent();
+            
         }
         public ItemBill(string id, string name, string price, string howUse, string pathImage,
             string category)

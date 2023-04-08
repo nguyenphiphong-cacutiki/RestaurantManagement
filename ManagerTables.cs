@@ -78,7 +78,7 @@ namespace ProjectGroup03_63KTPM2_Version01
         }
 
 
-        // hàm tạo tất cả các bảng, được gọi khi quản lý đăng nhập
+        // hàm tạo tất cả các bảng, được gọi khi quản lý đăng ký một tài khoản mới
         // mỗi người tự kết nối database trong form
         // thêm các class quản lý thông tin
 
